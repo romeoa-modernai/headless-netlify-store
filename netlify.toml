@@ -9,12 +9,6 @@
 [dev]
   command = "npm run dev"
 
-# Disable account routes - Customer Account API not configured
-[[redirects]]
-  from = "/account/*"
-  to = "/"
-  status = 302
-
 [[headers]]
 for = "/assets/*"
 [headers.values]
