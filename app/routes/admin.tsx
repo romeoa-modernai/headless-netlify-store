@@ -1,27 +1,25 @@
-// ✅ NO server imports - this runs entirely in the browser
 import React from "react";
 import { Puck } from "@measured/puck";
-
-// ✅ Simple client-side auth (NOT secure for production, but works for testing)
-// For real auth, you'd use Shopify's App Bridge or a proper auth system
+import "@measured/puck/puck.css";
 
 const config = {
+  categories: {
+    custom: {
+      title: "Custom",
+      components: ["ProductGrid", "Hero"]
+    }
+  },
   components: {
     ProductGrid: {
-      fields: { title: { type: "text" } },
       render: ({ title }: { title: string }) => (
-        <div className="product-grid">
+        <div className="product-grid" style={{ padding: "20px" }}>
           <h2>{title || "Products"}</h2>
         </div>
       )
     },
     Hero: {
-      fields: { 
-        heading: { type: "text" },
-        subheading: { type: "text" }
-      },
       render: ({ heading, subheading }: { heading: string; subheading: string }) => (
-        <div className="hero">
+        <div className="hero" style={{ padding: "40px", textAlign: "center", background: "#f5f5f5" }}>
           <h1>{heading || "Welcome"}</h1>
           <p>{subheading || "Shop our collection"}</p>
         </div>
@@ -31,8 +29,8 @@ const config = {
 };
 
 const initialData = {
-  root: { props: {} },
   content: [],
+  root: {},
   zones: {}
 };
 
